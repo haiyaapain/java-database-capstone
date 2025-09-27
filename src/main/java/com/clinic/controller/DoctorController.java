@@ -18,7 +18,6 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-    // ✅ Existing endpoints
     @GetMapping
     public List<Doctor> getAllDoctors() {
         return doctorService.getAllDoctors();
@@ -29,7 +28,6 @@ public class DoctorController {
         return doctorService.saveDoctor(doctor);
     }
 
-    // ✅ NEW endpoint: retrieve doctor availability
     @GetMapping("/{doctorId}/availability")
     public ResponseEntity<?> getDoctorAvailability(
             @PathVariable Long doctorId,
@@ -37,7 +35,6 @@ public class DoctorController {
             @RequestParam("role") String role,
             @RequestParam("token") String token) {
 
-        // 🚩 (1) Basic role-based check (could later connect to JWT/security)
         if (token == null || token.isEmpty()) {
             return ResponseEntity.badRequest().body(Map.of("error", "Token is required"));
         }
@@ -48,7 +45,6 @@ public class DoctorController {
             return ResponseEntity.badRequest().body(Map.of("error", "Invalid role"));
         }
 
-        // 🚩 (2) Fetch availability from service
         List<String> availableSlots = doctorService.getAvailability(doctorId, date);
 
         if (availableSlots.isEmpty()) {
