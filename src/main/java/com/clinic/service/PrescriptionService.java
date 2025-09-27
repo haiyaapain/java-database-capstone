@@ -17,7 +17,7 @@ public class PrescriptionService {
         return prescriptionRepository.findAll();
     }
 
-    public Prescription addPrescription(Prescription prescription) {
+    public Prescription addPrescription(String token, Prescription prescription) {
         return prescriptionRepository.save(prescription);
     }
 }
