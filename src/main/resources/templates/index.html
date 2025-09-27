@@ -1,43 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Smart Clinic Portal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
+            background: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
             text-align: center;
-            padding: 50px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
         h1 {
             color: #2c3e50;
+            margin-bottom: 30px;
         }
-        .portal-links {
-            margin-top: 30px;
-        }
-        .portal-links a {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            background-color: #3498db;
-            color: white;
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 20px;
+            width: 220px;
             text-decoration: none;
+            color: white;
+            background: #3498db;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 16px;
+            transition: 0.3s;
         }
-        .portal-links a:hover {
-            background-color: #2980b9;
+        .btn:hover {
+            background: #2980b9;
         }
     </style>
 </head>
 <body>
+<div class="container">
     <h1>Welcome to Smart Clinic</h1>
-    <p>Select a portal to continue:</p>
-    <div class="portal-links">
-        <a th:href="@{/admin/login}">Admin Portal</a>
-        <a th:href="@{/doctor/login}">Doctor Portal</a>
-        <a th:href="@{/patient/login}">Patient Portal</a>
-    </div>
+    <a href="/admin" class="btn">Admin Portal</a>
+    <a href="/doctor" class="btn">Doctor Portal</a>
+    <a href="/patient" class="btn">Patient Portal</a>
+</div>
 </body>
 </html>
