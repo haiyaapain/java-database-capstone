@@ -10,6 +10,6 @@ public class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String home() {
-        return "Welcome to Smart Clinic!";
+        return "index"; // Spring will load templates/index.html
     }
 }
