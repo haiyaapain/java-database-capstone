@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Clinic</title>
+    <title>Smart Clinic Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .portal-links {
+            margin-top: 30px;
+        }
+        .portal-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .portal-links a:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Smart Clinic 🚑</h1>
-    <p>Your backend is working!</p>
+    <h1>Welcome to Smart Clinic</h1>
+    <p>Select a portal to continue:</p>
+    <div class="portal-links">
+        <a th:href="@{/admin/login}">Admin Portal</a>
+        <a th:href="@{/doctor/login}">Doctor Portal</a>
+        <a th:href="@{/patient/login}">Patient Portal</a>
+    </div>
 </body>
 </html>
